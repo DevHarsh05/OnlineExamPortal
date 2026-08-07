@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.parent{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 120px;
+    background-color: rgb(211, 94, 94);
+}
+.child1{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 17px;
+}
+.child2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.heading{
+    color: white;
+}
+.ullist{
+    display: flex;
+    gap: 15px;
+    list-style-type: none;
+}
+
+.ullist a {
+  text-decoration: none;
+  color: white;
+}

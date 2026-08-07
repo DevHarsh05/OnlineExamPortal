@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Parent {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffaf5;
+}
+
+.Child {
+  width: 90%;
+  max-width: 350px;
+  background: white;
+  border-radius: 20px;
+  padding: 30px 0;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.Logodiv {
+  display: flex;
+  justify-content: center;
+}
+
+.Loginlogo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+
+.heading {
+  font-size: 28px;
+  color: #222;
+}
+
+.inputdiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.inputdiv input {
+  width: 85%;
+  height: 45px;
+  padding: 0 12px;
+  font-size: 16px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  outline: none;
+}
+
+.inputdiv input:focus {
+  border-color: rgb(22, 22, 79);
+}
+
+.buttondiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.buttondiv button {
+  width: 85%;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  background: rgb(22, 22, 79);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttondiv button:hover {
+  opacity: 0.9;
+}
+
+.anchordiv {
+  text-align: center;
+}
+
+.anchordiv a {
+  text-decoration: none;
+  color: rgb(22, 22, 79);
+  font-size: 15px;
+}
+
+.anchordiv a:hover {
+  text-decoration: underline;
+}

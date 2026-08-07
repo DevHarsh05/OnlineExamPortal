@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.parent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 140px); /* Header & Footer chhodkar full height */
+  background-color: #f8fafc;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  padding: 40px 20px 20px 20px;
+}
+
+.topchild {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.mainhead {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  text-align: center;
+}
+
+.subhead {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #475569;
+  text-align: center;
+}
+
+.gridbox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.studentbox,
+.teacherbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 28px 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.studentbox {
+  border: 2px solid #2563eb;
+}
+
+.teacherbox {
+  border: 2px solid #f97316;
+}
+
+.studentdetails,
+.teacherdetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 15px;
+}
+
+.studentdetails h5,
+.teacherdetails h5 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.studentdetails p,
+.teacherdetails p {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.studentbutton,
+.teacherbutton {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.studentbutton {
+  background-color: #2563eb;
+}
+
+.teacherbutton {
+  background-color: #f97316;
+}
+
+.studentbutton:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.teacherbutton:hover {
+  background-color: #ea580c;
+  transform: translateY(-1px);
+}
+
+.studentbutton a,
+.teacherbutton a {
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.imagediv {
+  width: 130px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.imagediv img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.bootomchild {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.Ullist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.Ullist li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.icon {
+  font-size: 28px;
+}
+
+@media (max-width: 850px) {
+  .gridbox {
+    grid-template-columns: 1fr;
+  }
+}
