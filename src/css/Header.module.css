@@ -14,7 +14,6 @@
   z-index: 1000;
 }
 
-
 .ulList {
   display: flex;
   align-items: center;
@@ -22,13 +21,16 @@
   list-style: none;
 }
 
-
 .ulItem {
   color: white;
   font-size: 19px;
   cursor: pointer;
 }
 
+/* 
+.ulitem:hover {
+  transform: translateY(-1px);
+} */
 
 .logo {
   color: white;

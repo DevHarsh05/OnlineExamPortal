@@ -1,9 +1,25 @@
 .container {
-  min-height: 85vh;
+  min-height: 78vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 80px;
   background-color: #fffaf5;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  /* background-image: url("../assets/studentlogo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; */
+}
+.mainhead {
+  font-size: 32px;
+  font-weight: 400;
+  color: #0f172a;
+  text-align: center;
 }
 
 .cards {
@@ -16,9 +32,7 @@
   height: 200px;
 
   background: rgba(255, 255, 255, 0.85);
-
   backdrop-filter: blur(10px);
-
   border-radius: 25px;
 
   display: flex;
@@ -27,13 +41,11 @@
   align-items: center;
 
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-
   transition: 0.4s;
 }
 
 .card:hover {
   transform: translateY(-12px);
-
   box-shadow: 0 30px 60px rgba(37, 99, 235, 0.25);
 }
 
@@ -45,15 +57,10 @@
 
 .card a {
   padding: 12px 35px;
-
   background: linear-gradient(135deg, #2563eb, #1e40af);
-
   color: white;
-
   text-decoration: none;
-
   border-radius: 50px;
-
   font-weight: 600;
 
   transition: 0.3s;

@@ -9,16 +9,31 @@ function RegisterTeacher() {
         <h2>TEACHER REGISTER</h2>
 
         <form className={style.form}>
-          <input type="text" placeholder=" Teacher Full Name" required />
+          <input
+            type="text"
+            placeholder=" Teacher Full Name"
+            required
+            name="teacher_name"
+          />
           <input
             type="email"
-            placeholder="Teacher ID / Employee Email"
+            placeholder="Teacher Email ID"
             required
+            name="email"
           />
-          <input type="text" placeholder="Subject / Department" required />
-          <input type="text" placeholder="School / College Code" required />
+          <input
+            type="text"
+            placeholder="School / College Code"
+            required
+            name="school_code"
+          />
           <input type="password" placeholder="Password" required />
-          <input type="password" placeholder="Confirm Password" required />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            required
+            name="password"
+          />
 
           <button type="submit" className={style.teacherButton}>
             Create Teacher Account

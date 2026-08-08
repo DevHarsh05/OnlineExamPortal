@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fffaf5; /* Soft light orange tint background */
+  background-color: #fffaf5;
   padding: 40px 20px;
 }
 
@@ -14,7 +14,7 @@
   background: #ffffff;
   padding: 35px 30px;
   border-radius: 16px;
-  border: 1.5px solid #fed7aa; /* Orange border */
+  border: 1.5px solid #fed7aa;
   box-shadow: 0 10px 25px rgba(249, 115, 22, 0.08);
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@
   width: 100%;
   padding: 12px;
   margin-top: 10px;
-  background-color: #ea580c; /* Teacher Theme Orange */
+  background-color: #ea580c;
   color: #ffffff;
   font-size: 15px;
   font-weight: 700;
@@ -71,9 +71,9 @@
   background-color: #c2410c;
 }
 
-.bottomText {
-  margin-top: 20px;
-  font-size: 13px;
+.bottompara {
+  margin-top: 10px;
+  font-size: 15px;
   color: #64748b;
 }
 
@@ -85,4 +85,8 @@
 
 .bottompara a:hover {
   text-decoration: underline;
+}
+
+span {
+  color: red;
 }
