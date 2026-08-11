@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import style from "../css/Register.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useCallAxios from "../CustomHooks/useCallAxios";
 
 function RegisterStudent() {
+  let navigate = useNavigate();
+
   const [formdata, setFormdata] = useState({
     student_name: "",
     email: "",
@@ -22,42 +24,56 @@ function RegisterStudent() {
   const confirmPasswordError = useRef();
   const passworderror = useRef();
 
-  function validation(ev) {
+  function validation() {
     nameError.current.innerText = "";
     emailError.current.innerText = "";
     confirmPasswordError.current.innerText = "";
     passworderror.current.innerText = "";
 
     let errcount = 0;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (formdata.student_name.trim() == "") {
+    if (formdata.student_name.trim() === "") {
       nameError.current.innerText = "Please Enter valid Name";
       errcount++;
     }
-    if (formdata.email.trim() == "") {
-      emailError.current.innerText = "Please Enter valid Name";
+    if (
+      formdata.email.trim() === "" ||
+      !emailRegex.test(formdata.email.trim())
+    ) {
+      emailError.current.innerText = "Please Enter valid Email";
       errcount++;
     }
-    if (formdata.password.trim() == "") {
+    if (formdata.password.trim() === "") {
       passworderror.current.innerText = "Plz enter a Password";
       errcount++;
     }
-    if (formdata.password !== formdata.confirmPassword) {
+    if (
+      formdata.confirmPassword.trim() === "" ||
+      formdata.password !== formdata.confirmPassword
+    ) {
       confirmPasswordError.current.innerText =
         "Password and Confirm Password is not matched";
       errcount++;
     }
-    if (errcount == 0) {
+    if (errcount === 0) {
       return true;
     }
     return false;
   }
 
-  function submitform(ev) {
+  async function submitform(ev) {
     ev.preventDefault();
     if (validation()) {
-      alert("succes");
-      console.log("Form submmit success", formdata);
+      try {
+        let dbresult = await useCallAxios("POST", "student/register", formdata);
+        if (dbresult.status === true) {
+          alert(dbresult.msg);
+          navigate("/login/student");
+        }
+      } catch (err) {
+        console.log(err.response.data.msg);
+      }
     }
   }
 
@@ -73,28 +89,28 @@ function RegisterStudent() {
             name="student_name"
             onChange={(e) => setdata(e)}
           />
-          <span ref={nameError}></span>
+          <span ref={nameError} className={style.errormsg}></span>
           <input
             type="email"
             placeholder="Email"
             name="email"
             onChange={(e) => setdata(e)}
           />
-          <span ref={emailError}></span>
+          <span ref={emailError} className={style.errormsg}></span>
           <input
             type="password"
             placeholder="Password"
             name="password"
             onChange={(e) => setdata(e)}
           />
-          <span ref={passworderror}></span>
+          <span ref={passworderror} className={style.errormsg}></span>
           <input
             type="password"
             placeholder="Confirm Password"
             name="confirmPassword"
             onChange={(e) => setdata(e)}
           />
-          <span ref={confirmPasswordError}></span>
+          <span ref={confirmPasswordError} className={style.errormsg}></span>
 
           <button type="submit" className={style.teacherButton}>
             Create Student Account
@@ -102,7 +118,7 @@ function RegisterStudent() {
         </form>
 
         <p className={style.bottompara}>
-          Already have an account? <Link to="/login/teacher">Log in here</Link>
+          Already have an account? <Link to="/login/student">Log in here</Link>
         </p>
       </div>
     </div>

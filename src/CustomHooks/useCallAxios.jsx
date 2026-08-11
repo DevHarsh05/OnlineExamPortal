@@ -2,9 +2,10 @@ import React from "react";
 import axios from "axios";
 
 async function useCallAxios(type = "GET", apipath, sendata) {
-  // let nodepath = ""
+  let nodepath = "http://localhost:3030/api/";
+
   let callapi = await axios({
-    url: apipath,
+    url: nodepath + apipath,
     method: type,
     data: sendata,
   });

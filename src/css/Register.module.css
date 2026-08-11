@@ -87,6 +87,6 @@
   text-decoration: underline;
 }
 
-span {
+.errormsg {
   color: red;
 }

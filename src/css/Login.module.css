@@ -6,7 +6,7 @@
 
 .Parent {
   width: 100%;
-  min-height: calc(100vh-140px);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,4 +101,8 @@ form {
 
 .anchordiv a:hover {
   text-decoration: underline;
+}
+
+.errormsg {
+  color: red;
 }

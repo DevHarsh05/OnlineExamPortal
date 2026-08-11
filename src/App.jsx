@@ -7,6 +7,9 @@ import LoginChoice from "./Components/LoginChoice";
 import Footer from "./Components/Footer";
 import RegisterStudent from "./Components/RegisterStudent";
 import RegisterTeacher from "./Components/RegisterTeacher";
+import StudentDashboard from "./Components/StudentDashboard";
+import TeacherDashboard from "./Components/TeacherDashboard";
+import AddTest from "./Components/AddTest";
 
 function App() {
   return (
@@ -22,6 +25,11 @@ function App() {
 
         <Route path="/register/student" element={<RegisterStudent />} />
         <Route path="/register/teacher" element={<RegisterTeacher />} />
+
+        <Route path="/student/dashboard" element={<StudentDashboard />} />
+
+        <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+        <Route path="/teacher/addtest" element={<AddTest />} />
       </Routes>
 
       <Footer />

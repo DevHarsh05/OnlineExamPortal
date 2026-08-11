@@ -1,0 +1,215 @@
+.dashboard {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.teacherdetails {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+
+  padding: 25px 30px;
+  margin-bottom: 35px;
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.teacherdetails h2 {
+  margin: 5px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.theads {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+
+.addButton {
+  margin-left: auto;
+  padding: 11px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.addButton:hover {
+  background: #1d4ed8;
+}
+
+.testSection {
+  background: #ffffff;
+
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.sectionTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.sectionTop h2 {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+
+  width: 280px;
+
+  padding: 10px 14px;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  background: #ffffff;
+}
+
+.searchBox span {
+  margin-right: 8px;
+}
+
+.searchBox input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tablemain {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.theading {
+  background: #f5f7fa;
+}
+
+th {
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+td {
+  padding: 16px 15px;
+  font-size: 14px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+tbody tr:hover {
+  background: #fafafa;
+}
+
+.testTitle {
+  font-weight: 500;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.editButton,
+.deleteButton {
+  padding: 7px 12px;
+
+  border-radius: 6px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.editButton {
+  border: 1px solid #2563eb;
+
+  background: transparent;
+
+  color: #2563eb;
+}
+
+.editButton:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.deleteButton {
+  border: 1px solid #dc2626;
+
+  background: transparent;
+
+  color: #dc2626;
+}
+
+.deleteButton:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.noTest {
+  padding: 30px;
+
+  text-align: center;
+
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    width: 94%;
+    margin: 25px auto;
+  }
+
+  .teacherdetails {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .addButton {
+    margin-left: 0;
+  }
+
+  .sectionTop {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .searchBox {
+    width: auto;
+  }
+}
