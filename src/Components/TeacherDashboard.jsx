@@ -4,27 +4,18 @@ import styles from "../css/TeacherDashboard.module.css";
 import TeacherTestlist from "./TeacherTestlist";
 
 function TeacherDashboard() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const teacherdetail = sessionStorage.getItem("teacherLoginDetail");
-  // let tdetail = JSON.parse(teacherdetail);
-  // console.log(tdetail);
+  const teacherdetail = sessionStorage.getItem("teacherLoginDetail");
+  let tdetail = JSON.parse(teacherdetail);
+  console.log(tdetail);
 
-  // const { teacher_name, tid } = tdetail;
-  // if (!teacherdetail) {
-  //   navigate("/login/teacher");
-  // }
+  if (!teacherdetail) {
+    navigate("/login/teacher");
+  }
 
   let teacher_name = "Harsh Tare";
   let tid = 101;
-
-  // const ignore = (
-  //   <tr>
-  //     <td colSpan="5" className={styles.noTest}>
-  //       No test found
-  //     </td>
-  //   </tr>
-  // );
 
   const [search, setSearch] = useState("");
 

@@ -1,0 +1,291 @@
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 42px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1.5px solid #fed7aa;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(249, 115, 22, 0.08);
+  color: #1e293b;
+}
+
+.mainTitle {
+  position: relative;
+  margin: 0 0 38px;
+  padding-bottom: 18px;
+
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mainTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 95px;
+  height: 4px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 42px 0 24px;
+  padding: 14px 18px;
+
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-left: 4px solid #4f46e5;
+  border-radius: 10px;
+}
+
+.inputGroup {
+  width: 100%;
+  margin-bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup label {
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.2px;
+}
+
+.inputField,
+.selectField {
+  width: 100%;
+  padding: 14px 16px;
+
+  font-size: 15px;
+  font-family: inherit;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 11px;
+  outline: none;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.inputField::placeholder {
+  color: #94a3b8;
+}
+
+.inputField:focus,
+.selectField:focus {
+  background: #ffffff;
+  border-color: #6366f1;
+
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.1),
+    0 5px 15px rgba(99, 102, 241, 0.06);
+}
+
+.optionsGrid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 8px;
+}
+
+.navigationButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  gap: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btnNav {
+  min-width: 120px;
+
+  padding: 11px 22px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #334155;
+  background: #ffffff;
+
+  border: 1px solid #d7dee9;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btnNav:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 15px rgba(15, 23, 42, 0.08);
+}
+
+.btnNav:active {
+  transform: translateY(0);
+}
+
+.submitContainer {
+  margin-top: 28px;
+}
+
+.btnSubmit {
+  width: 100%;
+
+  padding: 15px 20px;
+
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.btnSubmit:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.3);
+
+  filter: brightness(1.04);
+}
+
+.btnSubmit:active {
+  transform: translateY(0);
+}
+
+.selectField {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.errorbox {
+  color: red;
+  font-size: larger;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 92%;
+    padding: 30px 24px;
+    margin: 25px auto;
+    border-radius: 20px;
+  }
+
+  .mainTitle {
+    font-size: 27px;
+    margin-bottom: 30px;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+    margin-top: 32px;
+  }
+
+  .optionsGrid {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 94%;
+    padding: 24px 18px;
+    margin: 18px auto;
+    border-radius: 17px;
+  }
+
+  .mainTitle {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+
+  .sectionTitle {
+    font-size: 17px;
+    padding: 12px 14px;
+  }
+
+  .optionsGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .inputField,
+  .selectField {
+    padding: 13px 14px;
+  }
+
+  .navigationButtons {
+    margin-top: 30px;
+  }
+
+  .btnNav {
+    min-width: 105px;
+    padding: 10px 16px;
+  }
+
+  .btnSubmit {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 20px 14px;
+  }
+
+  .mainTitle {
+    font-size: 22px;
+  }
+
+  .navigationButtons {
+    gap: 10px;
+  }
+
+  .btnNav {
+    min-width: 95px;
+    padding: 9px 12px;
+  }
+}

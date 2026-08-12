@@ -5,7 +5,7 @@ import styles from "../css/LoginChoice.module.css";
 function LoginChoice() {
   return (
     <div className={styles.container}>
-      <p className={styles.mainhead}>Choose Your Account Type</p>
+      <p className={styles.mainhead}>Select Login Type</p>
       <div className={styles.cards}>
         <div className={styles.card}>
           <h2>👨‍🎓 Student</h2>

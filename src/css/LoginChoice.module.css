@@ -10,10 +10,6 @@
     system-ui,
     -apple-system,
     sans-serif;
-  /* background-image: url("../assets/studentlogo.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain; */
 }
 .mainhead {
   font-size: 32px;
@@ -73,5 +69,13 @@
 @media (max-width: 700px) {
   .cards {
     flex-direction: column;
+  }
+  .mainhead {
+    padding: 50px 20px 0px 20px;
+    font-size: 2rem;
+  }
+  .cards {
+    padding-bottom: 25px;
+    margin-bottom: 30px;
   }
 }

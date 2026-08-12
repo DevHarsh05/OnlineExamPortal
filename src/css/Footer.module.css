@@ -12,6 +12,8 @@
   align-items: center;
   padding: 10px 120px;
   background-color: rgb(211, 94, 94);
+  /* position: sticky;
+  bottom: -35px; */
 }
 .child1 {
   display: flex;

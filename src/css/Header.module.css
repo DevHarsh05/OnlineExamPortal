@@ -27,11 +27,6 @@
   cursor: pointer;
 }
 
-/* 
-.ulitem:hover {
-  transform: translateY(-1px);
-} */
-
 .logo {
   color: white;
   cursor: pointer;
@@ -40,4 +35,13 @@
 .ulItem a {
   text-decoration: none;
   color: white;
+}
+
+@media screen and (max-width: 650px) {
+  .logo {
+    display: none;
+  }
+  .ulList {
+    gap: 20%;
+  }
 }
