@@ -1,7 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../css/AddTest.module.css";
+import { useNavigate } from "react-router-dom";
+import useSessionData from "../CustomHooks/useSessionData";
+import useCallAxios from "../CustomHooks/useCallAxios";
 
 function AddTest() {
+  const navigate = useNavigate();
+  const Checklogin = useSessionData("teacherLoginDetail");
+  const teacher_id = Checklogin?.logindetail?.tid;
+
+  useEffect(() => {
+    if (!Checklogin) {
+      navigate("/login/teacher");
+    }
+  }, [Checklogin]);
+
   const [Allque, setAllque] = useState([]);
   const [oneque, setQneque] = useState({
     title: "",
@@ -12,6 +25,7 @@ function AddTest() {
     optionD: "",
     correctAnswer: "",
   });
+
   const [indexnumber, setIndexnumber] = useState(1);
 
   function enterdata(e) {
@@ -52,13 +66,14 @@ function AddTest() {
   }
 
   function Prevbutton() {
-    validation();
+    alert("Not working on this time sorry");
   }
 
   function Nextbutton() {
     if (validation()) {
-      setAllque([...Allque, { [`QueNo${indexnumber}`]: oneque }]);
+      setAllque([...Allque, oneque]);
       alert(`QueNo : ${indexnumber} Added`);
+
       setQneque({
         title: oneque.title,
         question: "",
@@ -72,24 +87,44 @@ function AddTest() {
     }
   }
 
-  function submittest(ev) {
+  async function submittest(ev) {
     ev.preventDefault();
-
     if (validation()) {
+      alert(`QueNo : ${indexnumber} Added`);
+      let all = [...Allque, oneque];
       try {
         let sure = confirm("test Submit?");
         if (sure) {
-          alert("Your Test submit done");
+          let apicall = await useCallAxios(
+            "POST",
+            `teacher/AddTest/${teacher_id}`,
+            all,
+            Checklogin.token,
+          );
+
+          if (apicall.status === true) {
+            alert(apicall.msg);
+            setQneque({
+              title: "",
+              question: "",
+              optionA: "",
+              optionB: "",
+              optionC: "",
+              optionD: "",
+              correctAnswer: "",
+            });
+            setIndexnumber(1);
+            navigate("/teacher/dashboard");
+          }
         }
-        console.log("hyy");
       } catch (err) {
-        alert(err);
+        console.log(err.response.data.msg);
       }
     }
   }
 
-  console.log(oneque);
-  console.log(Allque);
+  console.log("onequecheking", oneque);
+  console.log("twocheking", Allque);
 
   return (
     <div className={styles.container}>

@@ -76,12 +76,13 @@ function RegisterTeacher() {
     if (validation()) {
       try {
         let result = await useCallAxios("POST", "teacher/register", formdata);
+        console.log(result);
         if (result.status === true) {
           alert(result.msg);
           navigate("/login/teacher");
         }
       } catch (err) {
-        console.log(err);
+        alert(err.response.data.msg);
       }
     }
   }

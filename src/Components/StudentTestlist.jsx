@@ -1,30 +1,28 @@
 import React from "react";
-import styles from "../css/TeacherDashboard.module.css";
+import styles from "../css/StudentDashboard.module.css";
 import useCallAxios from "../CustomHooks/useCallAxios";
 
-function TeacherTestlist({ test, Delete }) {
+function StudentTestlist({ tests, Attempt }) {
   return (
     <tbody>
-      {test ? (
-        test.map((test) => (
+      {tests.length > 0 ? (
+        tests.map((test) => (
           <tr key={test.test_id}>
-            <td>{test.test_id}</td>
+            <td>T{test.test_id}</td>
 
             <td className={styles.testTitle}>{test.test_tittle}</td>
 
-            <td>{test.qtotal}</td>
+            <td>{test.qtotal} Ques..</td>
 
-            <td>{test.created_at}</td>
+            <td>{test.qtotal * 2} Marks</td>
 
             <td>
               <div className={styles.actionButtons}>
-                <button className={styles.editButton}>Edit</button>
-
                 <button
-                  className={styles.deleteButton}
-                  onClick={() => Delete(test.test_id)}
+                  className={styles.editButton}
+                  onClick={() => Attempt(test.test_id)}
                 >
-                  Delete
+                  Attempt
                 </button>
               </div>
             </td>
@@ -41,4 +39,4 @@ function TeacherTestlist({ test, Delete }) {
   );
 }
 
-export default TeacherTestlist;
+export default StudentTestlist;

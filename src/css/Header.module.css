@@ -1,47 +1,158 @@
 .NavBar {
   width: 100%;
-  height: 70px;
+  min-height: 70px;
   background-color: rgb(211, 94, 94);
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 50px;
+  padding: 5px 50px;
+  box-sizing: border-box;
 
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+.logodiv {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.imagediv {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.imagediv img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.logoheading {
+  margin: 0;
+  padding: 0;
+
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 .ulList {
   display: flex;
   align-items: center;
-  gap: 35px;
   list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
 }
 
 .ulItem {
-  color: white;
-  font-size: 19px;
-  cursor: pointer;
-}
-
-.logo {
-  color: white;
+  font-size: 22px;
   cursor: pointer;
 }
 
 .ulItem a {
   text-decoration: none;
   color: white;
+  transition: opacity 0.2s ease;
 }
 
-@media screen and (max-width: 650px) {
-  .logo {
-    display: none;
+.ulItem a:hover {
+  opacity: 0.75;
+}
+.logoutBtn {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.logoutBtn:hover {
+  opacity: 0.75;
+}
+@media screen and (max-width: 850px) {
+  .NavBar {
+    padding: 5px 25px;
   }
+
+  .logoheading {
+    font-size: 24px;
+  }
+
   .ulList {
-    gap: 20%;
+    gap: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .NavBar {
+    min-height: 65px;
+    padding: 5px 15px;
+  }
+
+  .logodiv {
+    gap: 8px;
+  }
+
+  .imagediv {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logoheading {
+    font-size: 17px;
+  }
+
+  .ulList {
+    gap: 15px;
+  }
+
+  .ulItem {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .NavBar {
+    padding: 5px 10px;
+  }
+
+  .imagediv {
+    width: 42px;
+    height: 42px;
+  }
+
+  .logoheading {
+    font-size: 14px;
+  }
+
+  .ulList {
+    gap: 10px;
+  }
+
+  .ulItem {
+    font-size: 14px;
   }
 }

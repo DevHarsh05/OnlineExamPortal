@@ -5,11 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useCallAxios from "../CustomHooks/useCallAxios";
 
 function Login(props) {
-  // const navigate = useNavigate();
-  // let teacherdetail = sessionStorage.getItem("StudentLoginDetail");
-  // let tdetail = JSON.parse(teacherdetail)[0];
-  // console.log(tdetail);
-
+  const navigate = useNavigate();
   const loginrole = props.role;
 
   const [logindata, setLogindata] = useState({
@@ -55,6 +51,7 @@ function Login(props) {
 
   async function loginsubmit(ev) {
     ev.preventDefault();
+
     if (validation()) {
       if (logindata.role === "student") {
         try {
@@ -67,7 +64,7 @@ function Login(props) {
             alert(response.msg);
             sessionStorage.setItem(
               "StudentLoginDetail",
-              JSON.stringify(response.data),
+              JSON.stringify(response),
             );
             navigate("/student/dashboard");
           }
@@ -87,7 +84,7 @@ function Login(props) {
             alert(response.msg);
             sessionStorage.setItem(
               "teacherLoginDetail",
-              JSON.stringify(response.data),
+              JSON.stringify(response),
             );
             navigate("/teacher/dashboard");
           }

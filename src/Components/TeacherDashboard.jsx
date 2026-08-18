@@ -1,56 +1,83 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../css/TeacherDashboard.module.css";
 import TeacherTestlist from "./TeacherTestlist";
+import useCallaxios from "../CustomHooks/useCallAxios";
+import useSessionData from "../CustomHooks/useSessionData";
 
 function TeacherDashboard() {
   const navigate = useNavigate();
+  let LoginData = useSessionData("teacherLoginDetail");
 
-  const teacherdetail = sessionStorage.getItem("teacherLoginDetail");
-  let tdetail = JSON.parse(teacherdetail);
-  console.log(tdetail);
+  useEffect(() => {
+    if (!LoginData) {
+      navigate("/login/teacher");
+    }
+  }, [LoginData]);
 
-  if (!teacherdetail) {
-    navigate("/login/teacher");
+  const teacher_name = LoginData?.logindetail?.teacher_name;
+  const teacher_id = LoginData?.logindetail?.tid;
+
+  const [alltests, setAllTests] = useState([]);
+
+  async function getAlltest() {
+    try {
+      let result = await useCallaxios(
+        "GET",
+        `teacher/getAllTest/${teacher_id}`,
+        null,
+        LoginData.token,
+      );
+      if (result.status == true) {
+        let data = result.data;
+        setAllTests(data);
+      } else {
+        setAllTests(false);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 
-  let teacher_name = "Harsh Tare";
-  let tid = 101;
+  useEffect(() => {
+    if (LoginData) {
+      getAlltest();
+    }
+  }, []);
 
-  const [search, setSearch] = useState("");
+  async function DeleteTest(testid) {
+    let msg = confirm("Delte this test ?....");
+    if (msg) {
+      try {
+        let apidelte = await useCallaxios(
+          "DELETE",
+          `teacher/deletetest/${testid}`,
+          null,
+          LoginData.token,
+        );
 
-  const [tests, setTests] = useState([
-    {
-      test_id: "T001",
-      title: "JavaScript Basic",
-      questions: 20,
-      marks: 20,
-    },
-    {
-      test_id: "T002",
-      title: "React Fundamentals",
-      questions: 25,
-      marks: 25,
-    },
-    {
-      test_id: "T003",
-      title: "Node.js Basics",
-      questions: 15,
-      marks: 15,
-    },
-  ]);
+        if (apidelte.status === true) {
+          alert(apidelte.msg);
+          getAlltest();
+        }
+      } catch (err) {
+        console.log(err.response.data.msg);
+      }
+    }
+  }
 
+  console.log("yecheckerhai", alltests);
   return (
     <div className={styles.dashboard}>
       <div className={styles.teacherdetails}>
         <div>
           <p className={styles.theads}>Teacher Name</p>
-          <h2>{teacher_name || "Teachername"}</h2>
+          <h2> {teacher_name}</h2>
         </div>
 
         <div>
           <p className={styles.theads}>Teacher ID</p>
-          <h2>{tid || "101"}</h2>
+          <h2>{teacher_id}</h2>
         </div>
 
         <Link className={styles.addButton} to={"/teacher/addtest"}>
@@ -65,12 +92,7 @@ function TeacherDashboard() {
           <div className={styles.searchBox}>
             <span>🔍</span>
 
-            <input
-              type="text"
-              placeholder="Search Test..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
+            <input type="text" placeholder="Search Test..." />
           </div>
         </div>
 
@@ -80,12 +102,15 @@ function TeacherDashboard() {
               <tr>
                 <th>Test ID</th>
                 <th>Test Title</th>
-                <th>Total No ofQuestions</th>
-                <th>Total Marks</th>
+                <th>Total No of Questions</th>
+                <th>Create Date</th>
                 <th>Actions</th>
               </tr>
             </thead>
-            <TeacherTestlist test={tests}></TeacherTestlist>
+            <TeacherTestlist
+              test={alltests}
+              Delete={DeleteTest}
+            ></TeacherTestlist>
           </table>
         </div>
       </section>

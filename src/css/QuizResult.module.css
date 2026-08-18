@@ -1,0 +1,154 @@
+.page {
+  min-height: calc(100vh - 140px);
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.resultBox {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 14px;
+  padding: 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.icon {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: #e8f5e9;
+  color: #2e7d32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.resultBox h1 {
+  margin: 0;
+  font-size: 27px;
+  color: #222;
+}
+
+.subtitle {
+  margin: 8px 0 25px;
+  color: #777;
+  font-size: 15px;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.scoreNumber {
+  font-size: 52px;
+  font-weight: 700;
+  color: #3f51b5;
+}
+
+.total {
+  font-size: 22px;
+  color: #777;
+  margin-left: 4px;
+}
+
+.percentage {
+  margin: 0 0 25px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.details div {
+  padding: 13px 8px;
+  border-right: 1px solid #e3e3e3;
+}
+
+.details div:last-child {
+  border-right: none;
+}
+
+.details span {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.details strong {
+  font-size: 18px;
+  color: #222;
+}
+
+.button {
+  border: none;
+  background: #3f51b5;
+  color: white;
+  padding: 11px 22px;
+  border-radius: 7px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background: #303f9f;
+}
+
+@media (max-width: 500px) {
+  .page {
+    min-height: calc(100vh - 140px);
+    padding: 25px 15px;
+    align-items: center;
+  }
+
+  .resultBox {
+    padding: 30px 20px;
+  }
+
+  .resultBox h1 {
+    font-size: 23px;
+  }
+
+  .scoreNumber {
+    font-size: 45px;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .details div {
+    border-right: none;
+    border-bottom: 1px solid #e3e3e3;
+  }
+
+  .details div:last-child {
+    border-bottom: none;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
